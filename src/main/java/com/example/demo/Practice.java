@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Practice {
     public static void main(String[] args) {
-        String excelFilePath = "D:\\SWT\\demo\\Book1.xlsx";
+        String excelFilePath = "D:\\SWT\\lab1\\Lab1.xlsx";
         String sheetName = "Sheet1"; // Tên sheet trong file Excel
 
         try (FileInputStream inputStream = new FileInputStream(excelFilePath);
@@ -18,6 +18,7 @@ public class Practice {
             Sheet sheet = workbook.getSheet(sheetName);
 
             for (int i = 1; i <= 10000; i++) {
+              for (int j = 0; j < 10000; j++) {
                 Row row = sheet.getRow(i);
 
                 if (row != null) {
@@ -26,16 +27,17 @@ public class Practice {
                     Cell cellB = row.getCell(1);
 
                     // Kiểm tra kiểu dữ liệu trước khi đọc giá trị
-                    double a = getCellValue(cellA);
-                    double b = getCellValue(cellB);
+                    int a = (int)getCellValue(cellA);
+                    int b = (int)getCellValue(cellB);
 
                     // Tính tổng
-                    double sum = a + b;
+                    int sum = a + b;
 
                     // Tạo cell mới hoặc cập nhật giá trị cell hiện tại
                     Cell cellSum = row.createCell(2); // Cột thứ 3 (cell index 2)
                     cellSum.setCellValue(sum);
                 }
+              }
             }
 
             // Ghi dữ liệu vào file Excel
