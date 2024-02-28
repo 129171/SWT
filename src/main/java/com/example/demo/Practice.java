@@ -11,7 +11,8 @@ public class Practice {
     public static void main(String[] args) {
         String excelFilePath = "D:\\SWT\\lab1\\Lab1.xlsx";
         String sheetName = "Sheet1"; // Tên sheet trong file Excel
-
+        int so1=1;
+        int so2=2;
         try (FileInputStream inputStream = new FileInputStream(excelFilePath);
              Workbook workbook = new XSSFWorkbook(inputStream)) {
 
